@@ -24,4 +24,4 @@ class Log(db.Model):
             'student_id': self.student_id,
             'staff_id': self.staff_id,
             'hours': self.hours
-        }
+        } 

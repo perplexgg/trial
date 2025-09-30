@@ -14,4 +14,4 @@ class Student(User):
         super().__init__(username, password)
     
     def set_hours(self, hours):
-        self.hours = hours
+        self.hours = hours 

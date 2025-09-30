@@ -6,4 +6,4 @@ class Activity(db.Model):
     name = db.Column(db.String(120), nullable=False)
 
     def __init__(self, name):
-        self.name = name
+        self.name = name 

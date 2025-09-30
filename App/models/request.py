@@ -13,4 +13,4 @@ class Request(db.Model):
     def __init__(self, student_id, activity_id, hours):
         self.student_id = student_id
         self.activity_id = activity_id
-        self.hours = hours
+        self.hours = hours 
