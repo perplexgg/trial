@@ -1,11 +1,32 @@
-from App.models import User
+from App.models import User, Student, Staff
 from App.database import db
 
 def create_user(username, password):
-    newuser = User(username=username, password=password)
+    newuser = User(username=username, password=password, type="student")
     db.session.add(newuser)
     db.session.commit()
     return newuser
+
+def create_student(username, password):
+    newuser = Student(username=username, password=password)
+    db.session.add(newuser)
+    db.session.commit()
+    return newuser
+
+def create_staff(username, password):
+    newuser = Staff(username=username, password=password)
+    db.session.add(newuser)
+    db.session.commit()
+    return newuser
+
+def add_student_hours(student_id, hours):
+    student = Student.query.get(student_id)
+    if student:
+        currentHours = student.hours
+        newHours = currentHours + hours
+        student.set_hours(newHours)
+        db.session.add(student)
+        db.session.commit()
 
 def get_user_by_username(username):
     result = db.session.execute(db.select(User).filter_by(username=username))
